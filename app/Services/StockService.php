@@ -6,7 +6,7 @@ class StockService
 {
     public function filterStock($query, Request $request)
     {
-        if ($request->filled('dateFrom') && $request->filled('dateTo')) {
+        if ($request->filled('dateFrom')) {
             $query->whereDate('date', '=', $request->input('dateFrom'));
         }
         $data = $query->paginate($request->query('limit', 500));
