@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number')->unique();
+            $table->date('date');
+            $table->string('customer_name');
+            $table->float('total_amount');
+            $table->enum('status', ['pending', 'processing', 'completed', 'cancelled']);
             $table->timestamps();
         });
     }

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->string('source');
+            $table->float('amount');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
